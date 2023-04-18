@@ -2,7 +2,7 @@
 
 @section('main')
   <div class="col-lg-8">
-    <div class="mb-2 d-flex justify-content-between align-items-center">
+    <div class="mb-4 d-flex justify-content-between align-items-center">
       <h5>Student List</h5>
       <a href="{{ route('students.create') }}" class="btn btn-sm btn-primary">Create Student Account</a>
     </div>
@@ -11,7 +11,7 @@
       <table class="dataTable table table-bordered table-striped">
         <thead>
           <tr>
-            <th span="col">Student ID</th>
+            <th span="col">ID</th>
             <th span="col">Student Name</th>
             <th span="col">Email Address</th>
             <th span="col">Course</th>

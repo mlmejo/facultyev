@@ -46,7 +46,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <form action="{{ route('programs.destroy', $program) }}" class="m-0">
+          <form action="{{ route('programs.destroy', $program) }}" method="post" class="m-0">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger">Confirm</button>

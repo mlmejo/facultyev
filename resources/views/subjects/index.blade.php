@@ -3,10 +3,10 @@
 @section('main')
   <div class="col-lg-8">
     <div class="mb-4 d-flex justify-content-between align-items-center">
-      <h5 class="mb-0">Course List</h5>
+      <h5 class="mb-0">Subject List</h5>
 
       <div class="d-flex align-items-center">
-        <a href="{{ route('courses.create') }}" class="me-2 btn btn-sm btn-primary">Create Course</a>
+        <a href="{{ route('subjects.create') }}" class="me-2 btn btn-sm btn-primary">Create Subject</a>
         <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#import-modal">
           Import CSV
         </button>
@@ -18,17 +18,21 @@
         <thead>
           <tr>
             <th span="col">ID</th>
-            <th span="col">Course Name</th>
+            <th span="col">Subject Code</th>
+            <th span="col">Descriptive Title</th>
+            <th span="col">Units</th>
             <th span="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($courses as $course)
+          @foreach ($subjects as $subject)
             <tr>
-              <td>{{ $course->id }}</td>
-              <td>{{ $course->name }}</td>
+              <td>{{ $subject->id }}</td>
+              <td>{{ $subject->code }}</td>
+              <td>{{ $subject->description }}</td>
+              <td>{{ $subject->units }}</td>
               <td>
-                <a href="{{ route('courses.edit', $course) }}" class="action text-decoration-none">Edit</a>
+                <a href="{{ route('subjects.edit', $subject) }}" class="action text-decoration-none">Edit</a>
               </td>
             </tr>
           @endforeach
@@ -45,7 +49,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('courses.import') }}" method="post" id="upload-form" enctype="multipart/form-data">
+          <form action="{{ route('subjects.import') }}" method="post" id="upload-form" enctype="multipart/form-data">
             @csrf
             <label for="document" class="col-form-label-sm">CSV Document</label>
             <input type="file" name="document" id="document" class="form-control form-control-sm" required />

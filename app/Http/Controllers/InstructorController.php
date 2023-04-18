@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
 use App\Models\Instructor;
 use App\Models\Program;
 use App\Models\User;
@@ -39,11 +40,18 @@ class InstructorController extends Controller
             'program_id' => $request->program_id,
         ]);
 
-        $instructor->user()->create([
+        /**
+         * @var \App\Models\User $user
+         */
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole(Role::Instructor->value);
+
+        $instructor->user()->save($user);
 
         return redirect()->route('instructors.create')
             ->with('status', 'Instructor account has been created');

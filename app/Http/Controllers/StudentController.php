@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
@@ -39,11 +41,20 @@ class StudentController extends Controller
             'course_id' => $request->course_id,
         ]);
 
-        $student->user()->create([
+        /**
+         * @var \App\Models\User $user
+         */
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->assignRole(Role::Student->value);
+
+        $student->user()->save($user);
+
+        event(new Registered($user));
 
         return redirect()->route('students.create')
             ->with('status', 'Student account has been created.');
