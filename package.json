@@ -6,7 +6,24 @@
     },
     "devDependencies": {
         "axios": "^1.1.2",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-cleancss": "^0.2.2",
+        "gulp-cli": "^2.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-sass": "^5.1.0",
+        "gulp-uglify": "^3.0.2",
         "laravel-vite-plugin": "^0.7.2",
+        "sass": "^1.62.0",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.2.3",
+        "datatables.net-bs5": "^1.13.4",
+        "feather-icons": "^4.29.0",
+        "jquery": "^3.6.4",
+        "select2": "^4.1.0-rc.0",
+        "select2-bootstrap-5-theme": "^1.3.0"
     }
 }

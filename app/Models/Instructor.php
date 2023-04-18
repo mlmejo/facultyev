@@ -11,6 +11,8 @@ class Instructor extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['program_id'];
+
     public function user(): MorphOne
     {
         return $this->morphOne(User::class, 'userable');

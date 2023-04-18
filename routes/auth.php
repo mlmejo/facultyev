@@ -1,0 +1,22 @@
+<?php
+
+use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\RegisteredAdminUserController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+
+    Route::get('/register/admin', [RegisteredAdminUserController::class, 'create'])
+        ->name('register.admin');
+
+    Route::post('/register/admin', [RegisteredAdminUserController::class, 'store']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::delete('/logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+});

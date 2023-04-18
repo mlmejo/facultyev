@@ -11,6 +11,8 @@ class Student extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['course_id'];
+
     public function user(): MorphOne
     {
         return $this->morphOne(User::class, 'userable');

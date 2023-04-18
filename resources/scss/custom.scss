@@ -1,0 +1,11 @@
+$primary: #000066;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/datatables.net-bs5/css/dataTables.bootstrap5.css";
+@import "../../node_modules/select2/dist/css/select2.css";
+@import "../../node_modules/select2-bootstrap-5-theme/src/select2-bootstrap-5-theme.scss";
+
+
+.action:hover {
+    text-decoration: underline !important;
+}
