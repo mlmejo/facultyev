@@ -92,13 +92,15 @@ class UploadedCsvController extends Controller
         $reader->setHeaderOffset(0);
 
         foreach ($reader->getRecords(['name', 'email', 'program_id']) as $record) {
-            $user = User::firstOrCreate([
+            $user = User::create([
                 'name' => $record['name'],
                 'email' => $record['email'],
                 'password' => Hash::make('luceatluxvestra'),
             ]);
 
-            Instructor::firstOrCreate([
+            $user->assignRole('instructor');
+
+            Instructor::create([
                 'user_id' => $user->id,
                 'program_id' => $record['program_id'],
             ]);
@@ -120,16 +122,18 @@ class UploadedCsvController extends Controller
         $reader->setHeaderOffset(0);
 
         foreach ($reader->getRecords(['name', 'email', 'course_id']) as $record) {
-            $user = User::firstOrCreate([
+            $user = User::create([
                 'name' => $record['name'],
                 'email' => $record['email'],
                 'password' => Hash::make('luceatluxvestra'),
             ]);
 
-            Instructor::firstOrCreate([
+            Instructor::create([
                 'user_id' => $user->id,
                 'course_id' => $record['course_id'],
             ]);
+
+            $user->assignRole('student');
 
             event(new Registered($user));
         }

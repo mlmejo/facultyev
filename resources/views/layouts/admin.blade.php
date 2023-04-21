@@ -11,14 +11,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-nav w-100">
-      <div class="nav-item text-nowrap ms-lg-auto">
-        <form action="{{ route('logout') }}" method="post" id="logout-form">
-          @csrf
-          @method('DELETE')
-          <a class="nav-link px-3" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            Sign out
-          </a>
-        </form>
+      <div class="nav-item text-nowrap ms-lg-auto dropdown">
+        <a href="#" class="nav-link dropdown-toggle px-3" role="button" data-bs-toggle="dropdown">
+          {{ request()->user()->name }}
+        </a>
+        <ul class="position-absolute dropdown-menu dropdown-menu-end">
+          <li>
+            <form action="{{ route('logout') }}" method="post" id="logout-form">
+              @csrf
+              @method('DELETE')
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                Sign out
+              </a>
+            </form>
+          </li>
+        </ul>
       </div>
     </div>
   </header>
@@ -98,7 +105,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{ route('results.index') }}">
                 <span data-feather="edit" class="align-text-bottom"></span>
                 Results
               </a>

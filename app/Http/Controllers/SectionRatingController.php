@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Question;
 use App\Models\Questionnaire;
 use App\Models\Rating;
 use App\Models\Section;

@@ -1,8 +1,13 @@
 @extends('layouts.student')
 
 @section('main')
-  <h6>Adviser: {{ $section->instructor->user->name }}</h6>
-  <h6>Subject: {{ $section->subject->code }}</h6>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex flex-column">
+      <h6>Adviser: {{ $section->instructor->user->name }}</h6>
+      <h6>Subject: {{ $section->subject->code }}</h6>
+    </div>
+    <a href="{{ route('results.print', [$student, 'section_id' => $section->id]) }}" class="px-4 btn btn-sm btn-primary">Print</a>
+  </div>
 
   <div class="table-responsive">
     <table class="mt-4 table table-bordered">

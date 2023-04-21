@@ -134,7 +134,7 @@
           url: `/admin/sections/${sectionId}/students/${studentId}`,
           type: "DELETE",
           success: (data) => {
-            window.location.href = data.redirect;
+            location.reload();
           }
         });
       })

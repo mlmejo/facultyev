@@ -43,10 +43,11 @@ Route::get('/dashboard', UserDashboardController::class)
     ->name('dashboard');
 
 Route::resource('sections.ratings', SectionRatingController::class)
-    ->middleware('auth');
+    ->except('index')
+    ->middleware(['auth', 'role:student']);
 
 Route::resource('students.ratings', StudentRatingController::class)
-    ->middleware('auth');
+    ->middleware(['auth', 'role:admin']);
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';

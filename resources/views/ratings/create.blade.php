@@ -31,27 +31,27 @@
               <td>{{ $question->content }}</td>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="1" />
+                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="1" required />
                 </div>
               </td>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="2" />
+                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="2" required />
                 </div>
               </td>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="3" />
+                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="3" required />
                 </div>
               </td>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="4" />
+                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="4" required />
                 </div>
               </td>
               <td>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="5" />
+                  <input class="form-check-input" type="radio" name="{{ $question->id }}" value="5" required />
                 </div>
               </td>
             </tr>
